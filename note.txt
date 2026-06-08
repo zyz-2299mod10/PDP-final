@@ -1,0 +1,7 @@
+install:
+git checkout 29def6b
+pip install -U transformer==4.57.6
+
+
+exec command:
+VLLM_ATTENTION_BACKEND=TRITON_ATTN ARCTIC_INFERENCE_ENABLED=1 python arctic_example.py

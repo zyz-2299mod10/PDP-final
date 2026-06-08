@@ -421,12 +421,7 @@ class VocabParallelEmbedding(torch.nn.Module, SpeculatorTPInit):
                 self.shard_indices.added_vocab_start_index,
                 self.shard_indices.added_vocab_end_index)
         else:
-            # For tp_size==1 there is no masking, so clamp to the
-            # valid embedding range.  Async scheduling + spec decode
-            # can leave -1 sentinel tokens in input_ids that would
-            # otherwise crash F.embedding.
-            masked_input = input_.clamp(
-                0, self.num_embeddings_per_partition - 1)
+            masked_input = input_
         # Get the embeddings.
         output_parallel = self.quant_method.embedding(self,
                                                       masked_input.long())

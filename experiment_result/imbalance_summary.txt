@@ -1,0 +1,161 @@
+TP:
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026]
+Min Tokens: 1026
+Max Tokens: 1026
+Mean Tokens: 1026.00
+Imbalance Ratio: 1.00x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    32832
+Generated Tokens:        320
+Execution Time:          2.6313 seconds
+Throughput:              12598.98 tokens/s
+==================================================
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[4106, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938]
+Min Tokens: 938
+Max Tokens: 4106
+Mean Tokens: 1037.00
+Imbalance Ratio: 4.38x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    33184
+Generated Tokens:        320
+Execution Time:          2.3955 seconds
+Throughput:              13986.03 tokens/s
+==================================================
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[16393, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531]
+Min Tokens: 531
+Max Tokens: 16393
+Mean Tokens: 1026.69
+Imbalance Ratio: 30.87x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    32854
+Generated Tokens:        320
+Execution Time:          8.1262 seconds
+Throughput:              4082.37 tokens/s
+==================================================
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[32772]
+Min Tokens: 32772
+Max Tokens: 32772
+Mean Tokens: 32772.00
+Imbalance Ratio: 1.00x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            1
+Actual Prompt Tokens:    32772
+Generated Tokens:        10
+Execution Time:          28.0867 seconds
+Throughput:              1167.17 tokens/s
+==================================================
+
+SP:
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026]
+Min Tokens: 1026
+Max Tokens: 1026
+Mean Tokens: 1026.00
+Imbalance Ratio: 1.00x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    32832
+Generated Tokens:        320
+Execution Time:          0.6096 seconds
+Throughput:              54386.91 tokens/s
+==================================================
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[4106, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938]
+Min Tokens: 938
+Max Tokens: 4106
+Mean Tokens: 1037.00
+Imbalance Ratio: 4.38x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    33184
+Generated Tokens:        320
+Execution Time:          1.2028 seconds
+Throughput:              27856.06 tokens/s
+==================================================
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[16393, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531]
+Min Tokens: 531
+Max Tokens: 16393
+Mean Tokens: 1026.69
+Imbalance Ratio: 30.87x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    32854
+Generated Tokens:        320
+Execution Time:          8.0918 seconds
+Throughput:              4099.69 tokens/s
+==================================================
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[32772]
+Min Tokens: 32772
+Max Tokens: 32772
+Mean Tokens: 32772.00
+Imbalance Ratio: 1.00x
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            1
+Actual Prompt Tokens:    32772
+Generated Tokens:        10
+Execution Time:          29.4212 seconds
+Throughput:              1114.23 tokens/s
+==================================================
