@@ -1,0 +1,193 @@
+INFO 06-09 23:58:06 [__init__.py:216] Automatically detected platform cuda.
+[36;1mArctic Inference plugin is enabled![0m
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticMLPSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticMLPSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticMLPSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticLSTMSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticLSTMSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticLSTMSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticLSTMSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticLSTMSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+WARNING 06-09 23:58:11 [interfaces_base.py:68] The model (<class 'arctic_inference.vllm.spec_dec.arctic_speculator.ArcticLSTMSpeculator'>) is missing vLLM-specific keywords from its `forward` method: ('input_ids', 'positions')
+Initializing LLM engine (TP=2, SP=2, Threshold=0, Mode=Pure SP)...
+INFO 06-09 23:58:11 [utils.py:233] non-default args: {'ulysses_sequence_parallel_size': 2, 'shift_parallel_threshold': 0, 'max_model_len': 32768, 'distributed_executor_backend': 'mp', 'tensor_parallel_size': 2, 'gpu_memory_utilization': 0.7, 'disable_log_stats': True, 'enforce_eager': True, 'model': 'meta-llama/Llama-3.1-8B-Instruct'}
+INFO 06-09 23:58:13 [model.py:547] Resolved architecture: LlamaForCausalLM
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING 06-09 23:58:13 [model.py:1682] Your device 'Tesla V100-SXM2-32GB' (with compute capability 7.0) doesn't support torch.bfloat16. Falling back to torch.float16 for compatibility.
+WARNING 06-09 23:58:13 [model.py:1733] Casting torch.bfloat16 to torch.float16.
+INFO 06-09 23:58:13 [model.py:1510] Using max model len 32768
+INFO 06-09 23:58:13 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 06-09 23:58:13 [__init__.py:381] Cudagraph is disabled under eager mode
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:15 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:15 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='meta-llama/Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=meta-llama/Llama-3.1-8B-Instruct, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":null,"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":0,"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":0,"local_cache_dir":null}, ulysses_sequence_parallel_size=2, enable_shift_parallel=False, shift_parallel_threshold=0
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:15 [multiproc_executor.py:720] Reducing Torch parallelism from 4 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_3f666a03'), local_subscribe_addr='ipc:///tmp/dbb7707a-21d5-4158-8149-5fd0c570e851', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m ERROR 06-09 23:58:15 [fa_utils.py:57] Cannot use FA version 2 is not supported due to FA2 is only supported on devices with compute capability >= 8
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m ERROR 06-09 23:58:15 [fa_utils.py:57] Cannot use FA version 2 is not supported due to FA2 is only supported on devices with compute capability >= 8
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m ERROR 06-09 23:58:15 [fa_utils.py:57] Cannot use FA version 2 is not supported due to FA2 is only supported on devices with compute capability >= 8
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m ERROR 06-09 23:58:15 [fa_utils.py:57] Cannot use FA version 2 is not supported due to FA2 is only supported on devices with compute capability >= 8
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_75c30aa3'), local_subscribe_addr='ipc:///tmp/7099f867-5a93-4860-90b4-df6ef44895c1', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_53876e54'), local_subscribe_addr='ipc:///tmp/733ac612-0d6c-46f4-9395-ad91cb8c818d', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_a1420bf7'), local_subscribe_addr='ipc:///tmp/15791852-9dfb-4d6a-adcb-cda2c68b3135', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_42515071'), local_subscribe_addr='ipc:///tmp/50c858ab-387c-4f48-8cb7-e2963877cad3', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_4e7eb1a5'), local_subscribe_addr='ipc:///tmp/b37ff47f-436d-4c7d-b9b1-fa7a7a475f9c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_db0d3ea7'), local_subscribe_addr='ipc:///tmp/36c71454-af76-48fc-8637-dc08f3357203', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [symm_mem.py:58] SymmMemCommunicator: Device capability 7.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [custom_all_reduce.py:144] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [custom_all_reduce.py:144] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [custom_all_reduce.py:144] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:199] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1, SP rank 0, SP_TP rank 2
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [custom_all_reduce.py:144] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:199] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0, SP rank 0, SP_TP rank 0
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:199] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1, SP rank 1, SP_TP rank 3
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:199] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0, SP rank 1, SP_TP rank 1
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217] UlyssesParallelState initialized:
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217]   PP 1 ranks [[0], [2], [1], [3]]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217]   TP 2 ranks [[0, 1], [2, 3]]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217]   SP 2 ranks [[0, 2], [1, 3]]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217]   DP 1 ranks [[0], [2], [1], [3]]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217]   EP 2 ranks [[0, 1], [2, 3]]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:17 [ulysses.py:217]   SP_TP 4 ranks [[0, 2, 1, 3]]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m WARNING 06-09 23:58:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:17 [gpu_model_runner.py:2602] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:17 [gpu_model_runner.py:2602] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:17 [gpu_model_runner.py:2602] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:17 [gpu_model_runner.py:2602] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:18 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:18 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:18 [cuda.py:322] Using Triton backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:18 [cuda.py:322] Using Triton backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:18 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:18 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:18 [cuda.py:322] Using Triton backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:18 [cuda.py:322] Using Triton backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:18 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:19 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:19 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:19 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:21 [weight_utils.py:413] Time spent downloading weights for meta-llama/Llama-3.1-8B-Instruct: 0.706760 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:02<00:06,  2.08s/it]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:04<00:04,  2.10s/it]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:06<00:02,  2.10s/it]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:06<00:00,  1.48s/it]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:06<00:00,  1.71s/it]
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m 
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:26 [default_loader.py:267] Loading weights took 6.84 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:27 [gpu_model_runner.py:2653] Model loading took 7.5123 GiB and 8.519182 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:27 [default_loader.py:267] Loading weights took 6.88 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:27 [default_loader.py:267] Loading weights took 6.76 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:27 [gpu_model_runner.py:2653] Model loading took 7.5123 GiB and 8.985751 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:28 [gpu_model_runner.py:2653] Model loading took 7.5123 GiB and 9.740054 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:28 [default_loader.py:267] Loading weights took 6.98 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:29 [gpu_model_runner.py:2653] Model loading took 7.5123 GiB and 10.700845 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m INFO 06-09 23:58:34 [gpu_worker.py:298] Available KV cache memory: 13.30 GiB
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m INFO 06-09 23:58:34 [gpu_worker.py:298] Available KV cache memory: 13.28 GiB
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m INFO 06-09 23:58:34 [gpu_worker.py:298] Available KV cache memory: 13.24 GiB
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m INFO 06-09 23:58:34 [gpu_worker.py:298] Available KV cache memory: 13.33 GiB
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1087] GPU KV cache size: 433,856 tokens
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.24x
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1087] GPU KV cache size: 435,776 tokens
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.30x
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1087] GPU KV cache size: 435,008 tokens
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.28x
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1087] GPU KV cache size: 436,928 tokens
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:34 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.33x
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414406)[0;0m WARNING 06-09 23:58:34 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414412)[0;0m WARNING 06-09 23:58:34 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP0 pid=1414410)[0;0m WARNING 06-09 23:58:34 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m [1;36m(Worker_TP1 pid=1414408)[0;0m WARNING 06-09 23:58:34 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:35 [core.py:210] init engine (profile, create kv cache, warmup model) took 5.60 seconds
+[1;36m(EngineCore_DP0 pid=1414400)[0;0m INFO 06-09 23:58:37 [__init__.py:381] Cudagraph is disabled under eager mode
+INFO 06-09 23:58:38 [llm.py:306] Supported_tasks: ['generate']
+Running warmup...
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s]Adding requests: 100%|██████████| 1/1 [00:00<00:00, 1251.66it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.30s/it, est. speed input: 3.07 toks/s, output: 7.67 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.30s/it, est. speed input: 3.07 toks/s, output: 7.67 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.30s/it, est. speed input: 3.07 toks/s, output: 7.67 toks/s]
+Running benchmark workload 'decode' with 500 request(s)...
+Adding requests:   0%|          | 0/500 [00:00<?, ?it/s]Adding requests:  75%|███████▌  | 377/500 [00:00<00:00, 3769.75it/s]Adding requests: 100%|██████████| 500/500 [00:00<00:00, 3877.05it/s]
+Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   0%|          | 1/500 [00:01<08:38,  1.04s/it, est. speed input: 3.85 toks/s, output: 9.62 toks/s]Processed prompts:  14%|█▎        | 68/500 [00:01<00:05, 79.82it/s, est. speed input: 234.47 toks/s, output: 586.16 toks/s]Processed prompts:  51%|█████▏    | 257/500 [00:02<00:01, 158.14it/s, est. speed input: 498.73 toks/s, output: 1246.82 toks/s]Processed prompts: 100%|██████████| 500/500 [00:02<00:00, 158.14it/s, est. speed input: 929.68 toks/s, output: 2324.18 toks/s]Processed prompts: 100%|██████████| 500/500 [00:02<00:00, 232.40it/s, est. speed input: 929.68 toks/s, output: 2324.18 toks/s]
+
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           DECODE
+Prompt Count:            500
+Actual Prompt Tokens:    2000
+Generated Tokens:        5000
+Execution Time:          2.2811 seconds
+Throughput:              3068.71 tokens/s
+==================================================

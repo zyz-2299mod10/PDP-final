@@ -1,0 +1,113 @@
+==========================================================================================
+                        SHIFT PARALLELISM EXPERIMENT RUN SUMMARY
+==========================================================================================
+Date: 2026-06-09 23:14:20
+Model: meta-llama/Llama-3.1-8B-Instruct
+TP Size: 2 | SP Size: 2
+==========================================================================================
+
+==========================================================================================
+CONFIG 1: Threshold=1500, Long=1024, Short=1024, Reqs=31
+==========================================================================================
+Parallelism mode switched to TP (scheduled tokens: 4, threshold: 1500)
+Running benchmark workload 'imbalance' with 32 request(s)...
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026, 1026]
+Min Tokens: 1026
+Max Tokens: 1026
+Mean Tokens: 1026.00
+Imbalance Ratio: 1.00x
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    32832
+Generated Tokens:        320
+Execution Time:          0.6149 seconds
+Throughput:              53915.23 tokens/s
+==================================================
+
+==========================================================================================
+CONFIG 2: Threshold=1500, Long=4096, Short=928, Reqs=31
+==========================================================================================
+Parallelism mode switched to TP (scheduled tokens: 4, threshold: 1500)
+Parallelism mode switched to SP (scheduled tokens: 4106, threshold: 1500)
+Parallelism mode switched to TP (scheduled tokens: 312, threshold: 1500)
+Running benchmark workload 'imbalance' with 32 request(s)...
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[4106, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938, 938]
+Min Tokens: 938
+Max Tokens: 4106
+Mean Tokens: 1037.00
+Imbalance Ratio: 4.38x
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    33184
+Generated Tokens:        320
+Execution Time:          1.4272 seconds
+Throughput:              23474.84 tokens/s
+==================================================
+
+==========================================================================================
+CONFIG 3: Threshold=1500, Long=16384, Short=528, Reqs=31
+==========================================================================================
+Parallelism mode switched to TP (scheduled tokens: 4, threshold: 1500)
+Parallelism mode switched to SP (scheduled tokens: 8192, threshold: 1500)
+Parallelism mode switched to TP (scheduled tokens: 102, threshold: 1500)
+Running benchmark workload 'imbalance' with 32 request(s)...
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[16393, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531, 531]
+Min Tokens: 531
+Max Tokens: 16393
+Mean Tokens: 1026.69
+Imbalance Ratio: 30.87x
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            32
+Actual Prompt Tokens:    32854
+Generated Tokens:        320
+Execution Time:          9.3797 seconds
+Throughput:              3536.78 tokens/s
+==================================================
+
+==========================================================================================
+CONFIG 4: Threshold=1500, Long=32768, Short=1, Reqs=0
+==========================================================================================
+Parallelism mode switched to TP (scheduled tokens: 4, threshold: 1500)
+Parallelism mode switched to SP (scheduled tokens: 8192, threshold: 1500)
+Parallelism mode switched to TP (scheduled tokens: 4, threshold: 1500)
+Running benchmark workload 'imbalance' with 1 request(s)...
+
+==================================================
+IMBALANCE WORKLOAD ANALYSIS
+Prompt Token Distribution
+[32772]
+Min Tokens: 32772
+Max Tokens: 32772
+Mean Tokens: 32772.00
+Imbalance Ratio: 1.00x
+==================================================
+EXPERIMENTAL METRICS & RESULTS
+==================================================
+Workload Type:           IMBALANCE
+Prompt Count:            1
+Actual Prompt Tokens:    32772
+Generated Tokens:        10
+Execution Time:          32.8558 seconds
+Throughput:              997.75 tokens/s
+==================================================

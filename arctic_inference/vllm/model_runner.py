@@ -16,6 +16,7 @@
 import contextlib
 import copy
 import gc
+import os
 import time
 from typing import Any, Optional, TYPE_CHECKING, Union
 
@@ -578,26 +579,66 @@ class GPUModelRunnerPatch(ArcticPatch[GPUModelRunner]):
 
         num_scheduled_tokens = scheduler_output.total_num_scheduled_tokens
 
-        use_shift_model = (
+        ### CHECK SHIFT STATE ¡X Adaptive Threshold ###
+        enable_shift = (
             getattr(self, "use_ulysses", False)
             and getattr(self, "shift_model", None) is not None
-            and num_scheduled_tokens <= self.shift_parallel_threshold
         )
-        
-        ### CHECK SHIFT STATE ###
-        enable_shift = (
-          getattr(self, "use_ulysses", False)
-          and getattr(self, "shift_model", None) is not None
-        )
+
+        if enable_shift:
+            threshold = self.shift_parallel_threshold
+            max_per_req = (
+                int(num_scheduled_tokens_np.max())
+                if len(num_scheduled_tokens_np) > 0 else 0
+            )
+            num_reqs = len(num_scheduled_tokens_np)
+
+            # Check if adaptive threshold is enabled via env var.
+            # ARCTIC_ADAPTIVE_THRESHOLD=0 ¡÷ static (original behavior)
+            # ARCTIC_ADAPTIVE_THRESHOLD=1 (default) ¡÷ adaptive
+            adaptive_enabled = os.environ.get(
+                "ARCTIC_ADAPTIVE_THRESHOLD", "1"
+            ) != "0"
+
+            # Adaptive decision:
+            #   1. Original: total tokens ? threshold ¡÷ TP (shift model)
+            #   2. NEW: every request is short (max_per_req ? threshold)
+            #      even if total tokens exceed threshold ¡÷ TP
+            #      Rationale: SP's all-to-all overhead is wasted when no
+            #      request is long enough to benefit from sequence splitting.
+            use_shift_model = (
+                num_scheduled_tokens <= threshold              # original rule
+                or (                                           # adaptive rule
+                    adaptive_enabled
+                    and max_per_req <= threshold
+                )
+            )
+        else:
+            use_shift_model = False
+            threshold = 0
+            max_per_req = 0
+            num_reqs = 0
+
         if enable_shift and is_global_first_rank():
             current_mode = "TP" if use_shift_model else "SP"
+
             last_mode = getattr(self, "_last_shift_parallel_mode", None)
             if last_mode != current_mode:
-                threshold = int(getattr(self, "shift_parallel_threshold", 0))
+                mean_per_req = (
+                    float(num_scheduled_tokens_np.mean())
+                    if num_reqs > 0 else 0.0
+                )
+                imbalance_ratio = (
+                    max_per_req / mean_per_req
+                    if mean_per_req > 0 else 0.0
+                )
                 logger.info(
-                    "[Shift Parallel] Parallelism mode switched to %s "
-                    "(scheduled tokens: %d, threshold: %d)",
-                    current_mode, num_scheduled_tokens, threshold
+                    "[Shift Parallel] mode=%s | total=%d, reqs=%d, "
+                    "max_per_req=%d, mean_per_req=%.1f, imbalance=%.2fx, "
+                    "threshold=%d",
+                    current_mode, num_scheduled_tokens, num_reqs,
+                    max_per_req, mean_per_req, imbalance_ratio,
+                    threshold,
                 )
                 self._last_shift_parallel_mode = current_mode
         ###

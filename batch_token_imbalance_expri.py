@@ -28,6 +28,10 @@ class ExperimentConfig:
     short_tokens: int
     short_requests: int
 
+    no_shift: bool = False
+    no_spec: bool = False
+    max_model_len: int = 32768
+
 
 @dataclass
 class BenchmarkResult:
@@ -350,6 +354,25 @@ def parse_args():
         help="Number of short requests",
     )
 
+    parser.add_argument(
+        "--no-shift",
+        action="store_true",
+        help="Disable shift parallel (pure SP/TP baseline)",
+    )
+
+    parser.add_argument(
+        "--no-spec",
+        action="store_true",
+        help="Disable speculative decoding for cleaner comparison",
+    )
+
+    parser.add_argument(
+        "--max-model-len",
+        type=int,
+        default=32768,
+        help="Max model context length (reduce for V100 memory)",
+    )
+
     return parser.parse_args()
 
 
@@ -364,28 +387,39 @@ def run_benchmark(config: ExperimentConfig):
         max_tokens=10,
     )
 
+    enable_shift = not config.no_shift
+    mode_label = (
+        "Shift Parallel (Adaptive)" if enable_shift
+        else f"Pure {'SP' if config.sp_size > 1 else 'TP'}"
+    )
+
     print(
         f"Initializing LLM engine "
         f"(TP={config.tp_size}, "
         f"SP={config.sp_size}, "
-        f"Threshold={config.threshold})..."
+        f"Threshold={config.threshold}, "
+        f"Mode={mode_label})..."
     )
 
-    llm = LLM(
+    llm_kwargs = dict(
         model=config.model,
         tensor_parallel_size=config.tp_size,
         ulysses_sequence_parallel_size=config.sp_size,
-        enable_shift_parallel=True,
+        enable_shift_parallel=enable_shift,
         shift_parallel_threshold=config.threshold,
-        max_model_len=100000,
+        max_model_len=config.max_model_len,
         gpu_memory_utilization=0.70,
         enforce_eager=True,
-        speculative_config={
+    )
+
+    if not config.no_spec:
+        llm_kwargs["speculative_config"] = {
             "method": "suffix",
             "num_speculative_tokens": 3,
             "enable_suffix_decoding": True,
-        },
-    )
+        }
+
+    llm = LLM(**llm_kwargs)
 
     tokenizer = llm.get_tokenizer()
 
@@ -483,6 +517,9 @@ if __name__ == "__main__":
         long_tokens=args.long_tokens,
         short_tokens=args.short_tokens,
         short_requests=args.short_requests,
+        no_shift=args.no_shift,
+        no_spec=args.no_spec,
+        max_model_len=args.max_model_len,
     )
 
     run_benchmark(config)
