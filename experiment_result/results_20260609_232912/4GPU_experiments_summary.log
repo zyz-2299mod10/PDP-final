@@ -1,0 +1,19 @@
+
+Quick summary:
+--------------------------------------------------------------
+4GPU Experiment                               Throughput
+--------------------------------------------------------------
+A1_decode_adaptive                            4126.21 tok/s
+A2_decode_pure_sp                             2731.18 tok/s
+B_imbalance_1024_adaptive                     2686.60 tok/s
+B_imbalance_1024_pure_sp                      4114.85 tok/s
+B_imbalance_16384_adaptive                    2271.67 tok/s
+B_imbalance_16384_pure_sp                     2127.35 tok/s
+B_imbalance_4096_adaptive                     5343.69 tok/s
+B_imbalance_4096_pure_sp                      4269.93 tok/s
+B_imbalance_8192_adaptive                     4029.97 tok/s
+B_imbalance_8192_pure_sp                      3491.24 tok/s
+C1_tp_only                                    2287.31 tok/s
+C2_sp_only                                    3311.54 tok/s
+C3_shift_adaptive                             3933.49 tok/s
+--------------------------------------------------------------

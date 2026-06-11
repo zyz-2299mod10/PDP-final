@@ -1,0 +1,30 @@
+
+Quick summary:
+--------------------------------------------------------------
+4GPU Experiment                               Throughput
+--------------------------------------------------------------
+A1_decode_pure_tp                             4898.33 tok/s
+A2_decode_pure_sp                             3936.00 tok/s
+A3_decode_static_shift                        4677.71 tok/s
+A4_decode_adaptive_shift                      4522.30 tok/s
+B_1024_adaptive_shift                         13497.21 tok/s
+B_1024_pure_sp                                12390.76 tok/s
+B_1024_pure_tp                                13807.58 tok/s
+B_1024_static_shift                           12347.79 tok/s
+B_16384_adaptive_shift                        2576.07 tok/s
+B_16384_pure_sp                               2658.14 tok/s
+B_16384_pure_tp                               2633.95 tok/s
+B_16384_static_shift                          2580.86 tok/s
+B_4096_adaptive_shift                         7989.42 tok/s
+B_4096_pure_sp                                8292.04 tok/s
+B_4096_pure_tp                                8450.88 tok/s
+B_4096_static_shift                           8083.37 tok/s
+B_8192_adaptive_shift                         4858.67 tok/s
+B_8192_pure_sp                                5027.89 tok/s
+B_8192_pure_tp                                5056.82 tok/s
+B_8192_static_shift                           4823.85 tok/s
+C1_balanced_pure_tp                           55395.28 tok/s
+C2_balanced_pure_sp                           53289.58 tok/s
+C3_balanced_static_shift                      52683.38 tok/s
+C4_balanced_adaptive_shift                    57118.14 tok/s
+--------------------------------------------------------------
